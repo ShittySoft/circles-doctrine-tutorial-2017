@@ -2,6 +2,7 @@
     "require": {
         "php": "^7.1",
         "ext-xml": "*",
+        "ext-pdo_sqlite": "*",
         "doctrine/orm": "^2.5",
         "doctrine/data-fixtures": "1.2.*"
     },
