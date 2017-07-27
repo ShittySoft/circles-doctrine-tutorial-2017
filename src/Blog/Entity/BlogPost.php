@@ -52,4 +52,14 @@ class BlogPost
     {
         $this->comments[] = Comment::post($commenter, $this, $contents, clone $currentTime);
     }
+
+    public function getCommentTexts() : array
+    {
+        return $this
+            ->comments
+            ->map(function (Comment $comment) : string {
+                return $comment->getContents();
+            })
+            ->toArray();
+    }
 }

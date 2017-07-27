@@ -2,7 +2,8 @@
     "require": {
         "doctrine/orm": "^2.5",
         "doctrine/data-fixtures": "1.2.*",
-        "ramsey/uuid": "^3.6"
+        "ramsey/uuid": "^3.6",
+        "phpunit/phpunit": "^6.2"
     },
     "autoload": {
         "psr-4": {
@@ -13,7 +14,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Acceptance\\": "test/Acceptance"
+            "Acceptance\\": "test/Acceptance",
+            "Integration\\": "test/Integration"
         }
     },
     "require-dev": {

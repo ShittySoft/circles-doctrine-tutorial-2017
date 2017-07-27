@@ -45,4 +45,9 @@ class Comment
     {
         return new self((string) Uuid::uuid4(), $author, $blogPost, $contents, clone $dateTime);
     }
+
+    public function getContents() : string
+    {
+        return $this->contents;
+    }
 }
