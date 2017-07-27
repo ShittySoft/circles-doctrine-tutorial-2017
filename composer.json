@@ -4,11 +4,13 @@
         "ext-xml": "*",
         "ext-pdo_sqlite": "*",
         "doctrine/orm": "^2.5",
-        "doctrine/data-fixtures": "1.2.*"
+        "doctrine/data-fixtures": "1.2.*",
+        "ramsey/uuid": "^3.6"
     },
     "autoload": {
         "psr-4": {
             "Authentication\\": "src/Authentication",
+            "BlogPost\\": "src/BlogPost",
             "Infrastructure\\": "src/Infrastructure"
         }
     },

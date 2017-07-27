@@ -3,6 +3,7 @@
 namespace Authentication\Entity;
 
 use Authentication\Repository\Users;
+use Ramsey\Uuid\Uuid;
 
 class User
 {

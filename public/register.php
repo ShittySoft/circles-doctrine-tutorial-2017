@@ -1,7 +1,7 @@
 <?php
 
 use Authentication\Entity\User;
-use Infrastructure\Authentication\Repository\DoctrineUsers;
+use Infrastructure\Authentication\Repository\DoctrineBlogPosts;
 use Infrastructure\Authentication\Repository\FilesystemUsers;
 
 require_once  __DIR__ . '/../vendor/autoload.php';
@@ -9,7 +9,7 @@ require_once  __DIR__ . '/../vendor/autoload.php';
 /* @var $entityManager \Doctrine\ORM\EntityManager */
 $entityManager = require __DIR__ . '/../bootstrap.php';
 
-$existingUsers = $users = new DoctrineUsers(
+$existingUsers = $users = new DoctrineBlogPosts(
     $entityManager,
     $entityManager->getRepository(User::class)
 );
