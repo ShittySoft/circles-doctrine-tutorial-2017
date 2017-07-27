@@ -2,13 +2,10 @@
 
 namespace Infrastructure\BlogPost\Repository;
 
-use Authentication\Entity\User;
-use Authentication\Repository\Users;
 use BlogPost\Entity\BlogPost;
 use BlogPost\Repository\BlogPosts;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\Common\Persistence\ObjectRepository;
-use Doctrine\ORM\EntityManager;
+use Ramsey\Uuid\UuidInterface;
 
 final class DoctrineBlogPosts implements BlogPosts
 {
@@ -20,6 +17,11 @@ final class DoctrineBlogPosts implements BlogPosts
     public function __construct(ObjectManager $persistenceManager)
     {
         $this->persistenceManager = $persistenceManager;
+    }
+
+    public function get(UuidInterface $id) : BlogPost
+    {
+        return $this->persistenceManager->find(BlogPost::class, $id->toString());
     }
 
     public function store(BlogPost $post) : void
