@@ -1,11 +1,23 @@
 <?php
 
-// registering a new user:
+use Infrastructure\Authentication\Repository\FilesystemUsers;
 
-// 1. check if a user with the same email address exists
-// 2. if not, create a user
-// 3. hash the password
-// 4. send the email to confirm activation (we will just display it)
-// 5. save the user
+require_once  __DIR__ . '/../vendor/autoload.php';
 
-// Tip: discuss - email or saving? Chicken-egg problem
+$existingUsers = $users = new FilesystemUsers(__DIR__ . '/../data/users');
+$passwordHashMechanism = function (string $password) : string {
+    return password_hash($password, \PASSWORD_DEFAULT);
+};
+$emailNotificationSender = function (string $emailAddress) : void {
+   error_log(sprintf('Registered "%s"', $emailAddress));
+};
+
+$users->store(\Authentication\Entity\User::register(
+    $_POST['emailAddress'],
+    $_POST['password'],
+    $existingUsers,
+    $passwordHashMechanism,
+    $emailNotificationSender
+));
+
+echo 'OK';
