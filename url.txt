@@ -5,3 +5,5 @@ git clone https://github.com/ShittySoft/circles-doctrine-tutorial-2017.git
 
 curl -sS https://getcomposer.org/installer | php --
 ./composer.phar install
+
+git remote add marco https://github.com/ShittySoft/circles-doctrine-tutorial-2017.git
