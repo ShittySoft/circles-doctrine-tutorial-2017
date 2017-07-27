@@ -2,11 +2,12 @@
 
 namespace Authentication\Repository;
 
+use Authentication\EmailAddress;
 use Authentication\Entity\User;
 
 interface Users
 {
-    public function has(string $emailAddress) : bool;
-    public function get(string $emailAddress) : User;
+    public function has(EmailAddress $emailAddress) : bool;
+    public function get(EmailAddress $emailAddress) : User;
     public function store(User $user) : void;
 }

@@ -2,6 +2,7 @@
 
 namespace Infrastructure\Authentication\Repository;
 
+use Authentication\EmailAddress;
 use Authentication\Entity\User;
 use Authentication\Repository\Users;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -31,12 +32,12 @@ final class DoctrineUsers implements Users
         $this->repository = $repository;
     }
 
-    public function has(string $emailAddress) : bool
+    public function has(EmailAddress $emailAddress) : bool
     {
         return (bool) $this->repository->find($emailAddress);
     }
 
-    public function get(string $emailAddress) : User
+    public function get(EmailAddress $emailAddress) : User
     {
         return $this->repository->find($emailAddress);
     }

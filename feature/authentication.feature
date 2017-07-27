@@ -5,6 +5,11 @@ Feature: A user can log in and logout
     When a user registers with the website
     Then the user can log into the website
 
+  Scenario: bob registers to the website
+    Given there are 3 registered users: "ben", "alice", "jane"
+    When "bob" registers to the website
+    Then "bob" has received a registration confirmation
+
   Scenario: A user can log into the website
     Given there is a registered user
     Then the user can log into the website

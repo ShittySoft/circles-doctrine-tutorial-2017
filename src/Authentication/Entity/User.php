@@ -2,13 +2,15 @@
 
 namespace Authentication\Entity;
 
+use Authentication\EmailAddress;
+use Authentication\PasswordHash;
 use Authentication\Repository\Users;
 use Ramsey\Uuid\Uuid;
 
 class User
 {
     /**
-     * @var string
+     * @var EmailAddress
      */
     private $emailAddress;
 
@@ -17,14 +19,14 @@ class User
      */
     private $passwordHash;
 
-    private function __construct(string $emailAddress, string $passwordHash)
+    private function __construct(EmailAddress $emailAddress, string $passwordHash)
     {
         $this->emailAddress = $emailAddress;
         $this->passwordHash = $passwordHash;
     }
 
     public static function register(
-        string $emailAddress,
+        EmailAddress $emailAddress,
         string $password,
         Users $existingUsers,
         callable $hashingMechanism,
